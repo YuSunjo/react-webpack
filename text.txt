@@ -1,0 +1,63 @@
+반복문 map 
+
+{/* <ul>
+                    {this.frait.map( (v,i)=>{
+                        <Try key={v.frait+v.taste} value={v} index={i}></Try>
+                    }
+
+                    )}
+                    
+                </ul> */}
+                {/* <ul>
+                    { [
+                    {frait:'사과', taste: '맛있다.'},
+                    {frait:'귤', taste: 'ㄴㄴ.'},
+                    {frait:'밤', taste: '맛없다.'},
+                    {frait:'사과', taste: '맛있다.'},
+                    ].map( (v,i)=> {                   {i는 인덱스 }
+                            <li key={v.frait+v.taste}>{v.frait} - {v.taste}</li>
+                        
+                    })   }
+                    
+                </ul> */}
+
+                {/* 반복문 -- 배열을 만든다음에 map을 쓴다.   , key 사용 */}
+
+
+
+성능문제  -- 숫자야구에서 숫자 칠때마다 tries도 render가 된다. 
+
+setState만 호출되면 render가 된다. 
+shouldComponentUpdate()이거 써줘야한다. 
+if(this.state.counter !== nextState.counter){
+    return true;
+}
+
+다른 방법 :
+requrie 할때 component에서 PureComponent로 하면 됨 
+hooks에서는 memo가 있다. 
+
+ref, 
+createRef를 써도 됨  -- class방식에서도 current붙여줘야함 
+class 에서는 그냥 startTime; 으로 속성해준것을 hoooks에서는 ref로 해주기
+ref를 hooks에서 쓸 때는 current붙여주고 
+
+props를 바꾸면 안됨 만약 바꿔야 된다면 state로 바꾼다음에 바꿔줘야함 ..
+--zerocho react 33
+
+context --> A -> B -> C -> ...
+A-> 에서B 말고 다른 컴포넌트에게 바로 주는 방법 
+
+
+
+state와 ref 
+dom 사용 유무 , 값이 바뀔때마다 render가 실행되는지 안되는지
+값은 바뀌는데 화면은 안바꿔주고 싶을때 ...ref사용 --hooks에서(?) 
+
+
+라이프사이클
+클래스 -> constructor -> render -> ref -> componentDidMound
+-> setState -> shouldComponentUpdate(true)->render -> componentDidUpdate
+-> 부모가 나를 없앴을 때 -> componentWillUnmount -> 소멸 
+
+hooks에서는 useEffect 를 사용해서 함  zerocho 43강 
